@@ -1,0 +1,6 @@
+E:\WorkFiles_proj\csharp\GameKiller\GameKiller\bin\Debug\GameKiller.exe.config
+E:\WorkFiles_proj\csharp\GameKiller\GameKiller\bin\Debug\GameKiller.exe
+E:\WorkFiles_proj\csharp\GameKiller\GameKiller\bin\Debug\GameKiller.pdb
+E:\WorkFiles_proj\csharp\GameKiller\GameKiller\obj\Debug\GameKiller.csprojResolveAssemblyReference.cache
+E:\WorkFiles_proj\csharp\GameKiller\GameKiller\obj\Debug\GameKiller.exe
+E:\WorkFiles_proj\csharp\GameKiller\GameKiller\obj\Debug\GameKiller.pdb
