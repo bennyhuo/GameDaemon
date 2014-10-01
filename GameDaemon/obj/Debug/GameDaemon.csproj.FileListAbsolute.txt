@@ -1,1 +1,11 @@
 E:\WorkFiles_proj\csharp\GameKiller\GameDaemon\bin\Debug\GameDaemon.exe.config
+E:\github\GameDaemon\GameDaemon\bin\Debug\GameDaemon.exe.config
+E:\github\GameDaemon\GameDaemon\bin\Debug\GameDaemon.exe
+E:\github\GameDaemon\GameDaemon\bin\Debug\GameDaemon.pdb
+E:\github\GameDaemon\GameDaemon\obj\Debug\MainWindow.baml
+E:\github\GameDaemon\GameDaemon\obj\Debug\MainWindow.g.cs
+E:\github\GameDaemon\GameDaemon\obj\Debug\App.g.cs
+E:\github\GameDaemon\GameDaemon\obj\Debug\GameDaemon_MarkupCompile.cache
+E:\github\GameDaemon\GameDaemon\obj\Debug\GameDaemon.g.resources
+E:\github\GameDaemon\GameDaemon\obj\Debug\GameDaemon.exe
+E:\github\GameDaemon\GameDaemon\obj\Debug\GameDaemon.pdb

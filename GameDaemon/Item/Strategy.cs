@@ -11,6 +11,11 @@ namespace GameDaemon.Item
         List<TimeBlock> timeList;
         bool isWhiteListMode = false;
 
+        public Strategy()
+        {
+            timeList = new List<TimeBlock>();
+        }
+
         public bool isAvailable()
         {
             //根据当前时间判断是否与时间区间吻合，给出是否能够运行。
