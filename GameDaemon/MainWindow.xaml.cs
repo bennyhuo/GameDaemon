@@ -14,7 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using System.Windows.Forms; // NotifyIcon control
-using System.Drawing; // Icon
+using System.Drawing;
+using GameDaemon.Dao; // Icon
 
 namespace GameDaemon
 {
@@ -105,6 +106,11 @@ namespace GameDaemon
         private void onSizeChanged(object sender, SizeChangedEventArgs e)
         {
             Console.WriteLine(this.WindowState);
+        }
+
+        private void onButtonClick(object sender, RoutedEventArgs e)
+        {
+            DbConnection conn = DbConnection.getInstance();
         }
     }
 }
