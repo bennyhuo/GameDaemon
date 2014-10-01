@@ -9,3 +9,5 @@ E:\github\GameDaemon\GameDaemon\obj\Debug\GameDaemon_MarkupCompile.cache
 E:\github\GameDaemon\GameDaemon\obj\Debug\GameDaemon.g.resources
 E:\github\GameDaemon\GameDaemon\obj\Debug\GameDaemon.exe
 E:\github\GameDaemon\GameDaemon\obj\Debug\GameDaemon.pdb
+E:\github\GameDaemon\GameDaemon\obj\Debug\GameDaemon.Properties.Resources.resources
+E:\github\GameDaemon\GameDaemon\obj\Debug\GameDaemon.csproj.GenerateResource.Cache
