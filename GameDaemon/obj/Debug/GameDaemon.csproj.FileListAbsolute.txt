@@ -13,3 +13,4 @@ E:\github\GameDaemon\GameDaemon\obj\Debug\GameDaemon.Properties.Resources.resour
 E:\github\GameDaemon\GameDaemon\obj\Debug\GameDaemon.csproj.GenerateResource.Cache
 E:\github\GameDaemon\GameDaemon\bin\Debug\System.Data.SQLite.DLL
 E:\github\GameDaemon\GameDaemon\bin\Debug\System.Data.SQLite.xml
+E:\github\GameDaemon\GameDaemon\obj\Debug\GameDaemon.csprojResolveAssemblyReference.cache

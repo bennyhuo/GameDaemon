@@ -3,7 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525" Closed="onWindowClosed" Icon="res/panda.ico" SizeChanged="onSizeChanged">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="175,132,0,0" VerticalAlignment="Top" Width="75" Click="onButtonClick"/>
+        <Button x:Name="rmTarget" Content="移出黑名单" HorizontalAlignment="Left" Margin="383,288,0,0" VerticalAlignment="Top" Width="89" Click="onButtonClick"/>
+        <ListView x:Name="Strategies" HorizontalAlignment="Left" Height="196" Margin="56,74,0,0" VerticalAlignment="Top" Width="416">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ComboBox x:Name="Targets" HorizontalAlignment="Left" Margin="56,35,0,0" VerticalAlignment="Top" Width="416" BorderThickness="1"/>
+        <Button x:Name="rmStrategy" Content="移除策略" HorizontalAlignment="Left" Margin="303,288,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="addStrategy" Content="添加策略" HorizontalAlignment="Left" Margin="222,288,0,0" VerticalAlignment="Top" Width="76"/>
 
     </Grid>
 </Window>

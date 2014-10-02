@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("res/panda.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("res/p.ico")]
 
 

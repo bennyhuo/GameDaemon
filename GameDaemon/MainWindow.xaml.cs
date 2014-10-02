@@ -27,7 +27,7 @@ namespace GameDaemon
         private NotifyIcon notifyIcon;
         private System.Windows.Forms.ContextMenu notifyMenu;
         private System.Windows.Forms.MenuItem[] notifyMenuItems;
-        //private System.ComponentModel.IContainer components;
+        
 
         public MainWindow()
         {
@@ -47,7 +47,7 @@ namespace GameDaemon
             buildNotifyIconMenu();
 
             this.notifyIcon = new NotifyIcon();
-            this.notifyIcon.BalloonTipText = "Hello, NotifyIcon!";
+            this.notifyIcon.BalloonTipText = "GameDaemon is Running!";
             this.notifyIcon.Text = "I'm the Dragon Warrior!";
             this.notifyIcon.Icon = new Icon("res/panda.ico");
 
@@ -55,7 +55,7 @@ namespace GameDaemon
             
             this.notifyIcon.Visible = true;
             this.notifyIcon.MouseClick += OnNotifyIconClick;
-            this.notifyIcon.ShowBalloonTip(1000);      
+            this.notifyIcon.ShowBalloonTip(1);      
         }
 
 
@@ -100,6 +100,7 @@ namespace GameDaemon
 
         private void exit(object sender, EventArgs e)
         {
+            DbConnection.getInstance().Dispose();
             this.Close();
         }
 

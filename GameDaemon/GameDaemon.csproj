@@ -64,6 +64,7 @@
     <Compile Include="Dao\DbConnection.cs" />
     <Compile Include="Dao\StrategyDao.cs" />
     <Compile Include="Dao\TargetDao.cs" />
+    <Compile Include="Item\Controller.cs" />
     <Compile Include="Properties\Resources.Designer.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -102,7 +103,9 @@
   <ItemGroup>
     <Resource Include="res\panda.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="res\p.ico" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx" />
   </ItemGroup>
