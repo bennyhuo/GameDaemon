@@ -1,19 +1,23 @@
 ﻿<Window x:Class="GameDaemon.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525" Closed="onWindowClosed" Icon="res/panda.ico" SizeChanged="onSizeChanged">
+        Title="GameDaemon" Height="363" Width="433" Closed="onWindowClosed" Icon="res/panda.ico" SizeChanged="onSizeChanged" KeyDown="onKeyDown" ResizeMode="CanMinimize">
     <Grid>
-        <Button x:Name="rmTarget" Content="移出黑名单" HorizontalAlignment="Left" Margin="383,288,0,0" VerticalAlignment="Top" Width="89" Click="onButtonClick"/>
-        <ListView x:Name="Strategies" HorizontalAlignment="Left" Height="196" Margin="56,74,0,0" VerticalAlignment="Top" Width="416">
+        <Button x:Name="rmTarget" Content="移除当前程序" HorizontalAlignment="Left" Margin="144,288,0,0" VerticalAlignment="Top" Width="89" Click="onButtonClick"/>
+        <ListView x:Name="Strategies" HorizontalAlignment="Left" Height="196" Margin="30,75,0,0" VerticalAlignment="Top" Width="364">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=StartTime}" Header="起始时间" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=EndTime}" Header="结束时间" Width="100" />
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Action}" Header="行为" Width="100" />
                 </GridView>
             </ListView.View>
         </ListView>
-        <ComboBox x:Name="Targets" HorizontalAlignment="Left" Margin="56,35,0,0" VerticalAlignment="Top" Width="416" BorderThickness="1"/>
-        <Button x:Name="rmStrategy" Content="移除策略" HorizontalAlignment="Left" Margin="303,288,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="addStrategy" Content="添加策略" HorizontalAlignment="Left" Margin="222,288,0,0" VerticalAlignment="Top" Width="76"/>
+        <ComboBox x:Name="Targets" HorizontalAlignment="Left" Margin="132,34,0,0" VerticalAlignment="Top" Width="262" BorderThickness="1" SelectionChanged="onSelectionChanged"/>
+        <Button x:Name="RmStrategy" Content="移除策略" HorizontalAlignment="Left" Margin="319,288,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="AddStrategy" Content="添加策略" HorizontalAlignment="Left" Margin="238,288,0,0" VerticalAlignment="Top" Width="76" Click="addStrategy"/>
+        <Button Name="AddTarget" Content="添加程序到黑名单" HorizontalAlignment="Left" Margin="32,288,0,0" VerticalAlignment="Top" Width="107" Click="addTarget"/>
+        <Label x:Name="SelectTarget" Content="选择程序名称" HorizontalAlignment="Left" Margin="32,34,0,0" VerticalAlignment="Top" Width="95" RenderTransformOrigin="0.73,0.308"/>
 
     </Grid>
 </Window>

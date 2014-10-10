@@ -15,7 +15,9 @@ using System.Windows.Shapes;
 
 using System.Windows.Forms; // NotifyIcon control
 using System.Drawing;
-using GameDaemon.Dao; // Icon
+using GameDaemon.Dao;
+using GameDaemon.Item;
+using System.Collections.ObjectModel; // Icon
 
 namespace GameDaemon
 {
@@ -32,7 +34,8 @@ namespace GameDaemon
         public MainWindow()
         {
             InitializeComponent();
-            buildNotifyIcon();           
+            buildNotifyIcon();
+            loadTargets();
         }
 
         
@@ -112,6 +115,80 @@ namespace GameDaemon
         private void onButtonClick(object sender, RoutedEventArgs e)
         {
             DbConnection conn = DbConnection.getInstance();
+        }
+
+        private void loadTargets()
+        {
+            itemSource = new ObservableCollection<ActionItem>();
+            targetSource =new ObservableCollection<Target>();
+            Strategies.ItemsSource = itemSource;
+            Targets.ItemsSource = targetSource;
+            reloadTargets();
+            Targets.SelectedIndex = 0;
+        }
+
+        Target currTarget;
+        ObservableCollection<ActionItem> itemSource;
+        ObservableCollection<Target> targetSource;
+        private void onSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems.Count > 0)
+            {
+                currTarget = (Target)e.AddedItems[0];
+                reloadItems();
+            }
+            else
+            {
+                currTarget = null;
+            }            
+        }
+
+        private void addStrategy(object sender, RoutedEventArgs e)
+        {
+            if (currTarget == null) return;
+            AddStrategyWindow addWindow = new AddStrategyWindow(currTarget);
+            addWindow.ShowDialog();
+
+            reloadItems();
+        }
+
+
+        private void addTarget(object sender, RoutedEventArgs e)
+        {
+            AddTargetWindow targetWin = new AddTargetWindow();
+            if (targetWin.ShowDialog() == true)
+            {
+
+                reloadTargets();
+            }
+            
+        }
+
+        private void reloadItems()
+        {
+            itemSource.Clear();
+            foreach(ActionItem item in currTarget.DaemonStrategy.ItemList){
+                itemSource.Add(item);
+            }
+        }
+
+        private void reloadTargets()
+        {
+            targetSource.Clear();
+            foreach (Target t in Controller.getInstance().Targets)
+            {
+                targetSource.Add(t);
+            }
+            Targets.SelectedIndex = Controller.getInstance().Targets.Count - 1;
+        }
+
+        private void onKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (!this.isHidden)
+            {
+                this.Hide();
+                this.isHidden = !this.isHidden;
+            }
         }
     }
 }

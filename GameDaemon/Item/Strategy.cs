@@ -6,14 +6,22 @@ using System.Threading.Tasks;
 
 namespace GameDaemon.Item
 {
-    class Strategy
+    public class Strategy
     {
-        List<TimeBlock> timeList;
+        List<ActionItem> itemList;
         bool isWhiteListMode = false;
+
+        public List<ActionItem> ItemList
+        {
+            get
+            {
+                return itemList;
+            }
+        }
 
         public Strategy()
         {
-            timeList = new List<TimeBlock>();
+            itemList = new List<ActionItem>();
         }
 
         public bool isAvailable()
@@ -21,7 +29,7 @@ namespace GameDaemon.Item
             //根据当前时间判断是否与时间区间吻合，给出是否能够运行。
             bool isInBlocks = false;
             DateTime time = DateTime.Now;
-            foreach (TimeBlock block in timeList)
+            foreach (ActionItem block in itemList)
             {
                 isInBlocks = block.isInBlock(time);
                 if (isInBlocks)
@@ -38,14 +46,14 @@ namespace GameDaemon.Item
             return isInBlocks == isWhiteListMode;
         }
 
-        public void addTimeBlock(TimeBlock block)
+        public void addTimeBlock(ActionItem block)
         {
-            timeList.Add(block);
+            itemList.Add(block);
         }
 
-        public void rmTimeBlock(TimeBlock block)
+        public void rmTimeBlock(ActionItem block)
         {
-            timeList.Remove(block);
+            itemList.Remove(block);
         }
     }
 }
