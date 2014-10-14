@@ -10,8 +10,11 @@ namespace GameDaemon.Item
     {
         String[] actionList = {"禁用", "警告" };//暂时只支持禁用
 
-        int startTimeValue;
-        int endTimeValue;
+        public int Id { get; set; }
+        public int TargetId { get; set; }
+
+        public int startTimeValue;
+        public int endTimeValue;
         int actionValue = 0; 
         public String StartTime
         {
@@ -37,8 +40,9 @@ namespace GameDaemon.Item
             }
         }
 
-        public ActionItem(int startHour, int startMin, int endHour, int endMin)
+        public ActionItem(int id , int startHour, int startMin, int endHour, int endMin)
         {
+            this.Id = id;
             this.startTimeValue = startHour * 60 + startMin;
             this.endTimeValue = endHour * 60 + endMin;
         }

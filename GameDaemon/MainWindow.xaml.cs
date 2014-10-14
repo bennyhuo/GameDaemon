@@ -36,6 +36,7 @@ namespace GameDaemon
             InitializeComponent();
             buildNotifyIcon();
             loadTargets();
+            Controller.getInstance().startDaemon();
         }
 
         
@@ -77,8 +78,6 @@ namespace GameDaemon
             }
             this.isHidden = !this.isHidden;
         }
-
-        
         
         private void buildNotifyIconMenu()
         {
@@ -104,17 +103,13 @@ namespace GameDaemon
         private void exit(object sender, EventArgs e)
         {
             DbConnection.getInstance().Dispose();
+            Controller.getInstance().stopDaemon();
             this.Close();
         }
 
         private void onSizeChanged(object sender, SizeChangedEventArgs e)
         {
             Console.WriteLine(this.WindowState);
-        }
-
-        private void onButtonClick(object sender, RoutedEventArgs e)
-        {
-            DbConnection conn = DbConnection.getInstance();
         }
 
         private void loadTargets()
@@ -147,18 +142,17 @@ namespace GameDaemon
         {
             if (currTarget == null) return;
             AddStrategyWindow addWindow = new AddStrategyWindow(currTarget);
-            addWindow.ShowDialog();
-
-            reloadItems();
+            if (addWindow.ShowDialog() == true)
+            {
+                reloadItems();
+            }
         }
-
 
         private void addTarget(object sender, RoutedEventArgs e)
         {
             AddTargetWindow targetWin = new AddTargetWindow();
             if (targetWin.ShowDialog() == true)
             {
-
                 reloadTargets();
             }
             
@@ -169,6 +163,10 @@ namespace GameDaemon
             itemSource.Clear();
             foreach(ActionItem item in currTarget.DaemonStrategy.ItemList){
                 itemSource.Add(item);
+            }
+            if (itemSource.Count > 0)
+            {
+                Strategies.SelectedIndex = 0;
             }
         }
 
@@ -189,6 +187,31 @@ namespace GameDaemon
                 this.Hide();
                 this.isHidden = !this.isHidden;
             }
+        }
+
+        private void removeStrategy(object sender, RoutedEventArgs e)
+        {
+            int index = Strategies.SelectedIndex;
+            if (index != -1)
+            {
+                itemSource.RemoveAt(index);
+                currTarget.DaemonStrategy.rmStrategyAt(index);
+            }
+        }
+
+        private void onRmTarget(object sender, RoutedEventArgs e)
+        {
+            int index = targetSource.IndexOf(currTarget);
+            Controller.getInstance().rmTarget(index);
+            targetSource.Remove(currTarget);
+            if (targetSource.Count != 0)
+            {
+                if (index == targetSource.Count)
+                {
+                    index--;
+                }
+            }
+            Targets.SelectedIndex = index;            
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameDaemon.Dao;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,11 @@ namespace GameDaemon.Item
             {
                 return itemList;
             }
+        }
+
+        public Strategy(int id)
+        {
+            itemList = StrategyDao.getInstance().getActionItems(id);
         }
 
         public Strategy()
@@ -46,14 +52,22 @@ namespace GameDaemon.Item
             return isInBlocks == isWhiteListMode;
         }
 
-        public void addTimeBlock(ActionItem block)
+        public void addStrategy(ActionItem item)
         {
-            itemList.Add(block);
+            itemList.Add(item);
+            StrategyDao.getInstance().insertActionItem(item);
         }
 
-        public void rmTimeBlock(ActionItem block)
+        public void rmStrategyAt(int index)
         {
-            itemList.Remove(block);
+            StrategyDao.getInstance().rmActionItem(itemList.ElementAt(index));
+            itemList.RemoveAt(index);
+        }
+
+        public void rmStrategy(ActionItem item)
+        {
+            StrategyDao.getInstance().rmActionItem(item);
+            itemList.Remove(item);
         }
     }
 }

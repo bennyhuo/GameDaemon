@@ -57,8 +57,9 @@ namespace GameDaemon
             {
                 DateTime sdt = starttime.Value.Value;
                 DateTime edt = endtime.Value.Value;
-                ActionItem item = new ActionItem(sdt.Hour, sdt.Minute, sdt.Hour, sdt.Minute);
-                t.DaemonStrategy.addTimeBlock(item);
+                ActionItem item = new ActionItem(0,sdt.Hour, sdt.Minute, edt.Hour, edt.Minute);
+                item.TargetId = t.Id;
+                t.DaemonStrategy.addStrategy(item);
                 NewItem = item;
                 this.DialogResult = true;
                 Close();

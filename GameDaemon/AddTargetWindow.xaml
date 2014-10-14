@@ -1,7 +1,7 @@
 ﻿<Window x:Class="GameDaemon.AddTargetWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="添加程序项" Height="170.504" Width="272.511" ResizeMode="NoResize" FocusManager.FocusedElement="{Binding ElementName=targetName}" KeyDown="onKeyDown">
+        Title="添加程序项" Height="170.504" Width="272.511" ResizeMode="NoResize" FocusManager.FocusedElement="{Binding ElementName=targetName}" KeyDown="onKeyDown" Icon="res/panda.ico">
     <Grid>
         <Button Name="CancelButton" TabIndex="3" Content="取消" HorizontalAlignment="Left" Margin="139,80,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.6,-1.359" Click="cancel"/>
         <TextBox Name="targetName" TabIndex="0" HorizontalAlignment="Left" Height="23" Margin="107,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>

@@ -60,9 +60,10 @@ namespace GameDaemon.Dao
             cmd.Connection = conn;
             cmd.ExecuteNonQuery();
 
-            string sql2 = "CREATE TABLE strategy(id integer primary key autoincrement, start integer, end integer, action integer, targetid integer)";
+            string sql2 = "CREATE TABLE actionitem(id integer primary key autoincrement, sh integer, sm integer, eh integer, em integer, action integer, targetid integer)";
             cmd.CommandText = sql2;
             cmd.ExecuteNonQuery();
+            cmd.Dispose();
         }
 
         public void Dispose()

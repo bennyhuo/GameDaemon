@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="GameDaemon" Height="363" Width="433" Closed="onWindowClosed" Icon="res/panda.ico" SizeChanged="onSizeChanged" KeyDown="onKeyDown" ResizeMode="CanMinimize">
     <Grid>
-        <Button x:Name="rmTarget" Content="移除当前程序" HorizontalAlignment="Left" Margin="144,288,0,0" VerticalAlignment="Top" Width="89" Click="onButtonClick"/>
+        <Button x:Name="rmTarget" Content="移除当前程序" HorizontalAlignment="Left" Margin="144,288,0,0" VerticalAlignment="Top" Width="89" Click="onRmTarget"/>
         <ListView x:Name="Strategies" HorizontalAlignment="Left" Height="196" Margin="30,75,0,0" VerticalAlignment="Top" Width="364">
             <ListView.View>
                 <GridView>
@@ -14,7 +14,7 @@
             </ListView.View>
         </ListView>
         <ComboBox x:Name="Targets" HorizontalAlignment="Left" Margin="132,34,0,0" VerticalAlignment="Top" Width="262" BorderThickness="1" SelectionChanged="onSelectionChanged"/>
-        <Button x:Name="RmStrategy" Content="移除策略" HorizontalAlignment="Left" Margin="319,288,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="RmStrategy" Content="移除策略" HorizontalAlignment="Left" Margin="319,288,0,0" VerticalAlignment="Top" Width="75" Click="removeStrategy"/>
         <Button x:Name="AddStrategy" Content="添加策略" HorizontalAlignment="Left" Margin="238,288,0,0" VerticalAlignment="Top" Width="76" Click="addStrategy"/>
         <Button Name="AddTarget" Content="添加程序到黑名单" HorizontalAlignment="Left" Margin="32,288,0,0" VerticalAlignment="Top" Width="107" Click="addTarget"/>
         <Label x:Name="SelectTarget" Content="选择程序名称" HorizontalAlignment="Left" Margin="32,34,0,0" VerticalAlignment="Top" Width="95" RenderTransformOrigin="0.73,0.308"/>

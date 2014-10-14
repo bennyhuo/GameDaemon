@@ -12,16 +12,16 @@ namespace GameKiller
     {
         static void Main(string[] args)
         {
-            while (true)
+            Process[] procs = Process.GetProcesses();//.GetProcessesByName("QQGameHall");
+            foreach (Process p in procs)
             {
-                Process[] procs = Process.GetProcessesByName("QQGameHall");
-                foreach(Process p in procs){
-                    p.Kill();
-                    Console.WriteLine("kill ...");
-                }
-                Thread.Sleep(10000);
-                Console.WriteLine("again ...");
+                //p.Kill();
+                //Console.WriteLine("kill ...");
+                Console.WriteLine(p.ProcessName);
             }
+            //Thread.Sleep(10000);
+            Console.WriteLine("again ...");
+            Console.Read();
         }
     }
 }
